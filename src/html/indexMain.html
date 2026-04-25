@@ -105,7 +105,7 @@
     }
 
     async function carregarLivros() {
-      const res = await fetch("http://localhost:3000/api/livros", {
+      const res = await fetch("https://babel-be-lovat.vercel.app/api/livros", {
         headers: {
           "Authorization": `Bearer ${token}`
         }

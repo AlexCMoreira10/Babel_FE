@@ -6,7 +6,7 @@ if (!token) {
 }
 
 async function carregarLivros() {
-    const res = await fetch("http://localhost:3000/api/livros", {
+    const res = await fetch("https://babel-backend.onrender.com/api/livros", {
         headers: {
             "Authorization": `Bearer ${token}`
         }
