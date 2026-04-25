@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro - Estante</title>
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+  <ion-app>
+    <ion-content fullscreen class="cadastro-page">
+
+      <div class="box-cadastro">
+        <h1>Sua Estante te espera!</h1>
+
+        <div class="card-form">
+          <h2>Cadastro</h2>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Nome</ion-label>
+            <ion-input type="text" placeholder="Digite seu nome"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Telefone</ion-label>
+            <ion-input type="tel" placeholder="Digite seu telefone"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Endereço</ion-label>
+            <ion-input type="text" placeholder="Digite seu endereço"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input type="email" placeholder="Digite seu email"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Senha</ion-label>
+            <ion-input type="password" placeholder="Crie uma senha"></ion-input>
+          </ion-item>
+
+          <a href="indexMain.html">
+         <ion-button expand="block" class="btn">
+           Entrar
+         </ion-button>
+          </a>
+          
+          <p class="link-login">
+            Já tem uma conta?
+            <a href="login.html">Entrar</a>
+          </p>
+        </div>
+      </div>
+
+    </ion-content>
+  </ion-app>
+</body>
+</html>

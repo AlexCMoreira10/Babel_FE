@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estante</title>
+
+  <link rel="stylesheet" href="../css/Main.css">
+
+  <script type="module" src="https://unpkg.com/@ionic/core@latest/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://unpkg.com/@ionic/core@latest/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css">
+</head>
+
+<body>
+<ion-app>
+
+  <div id="overlay" onclick="fecharMenu()"></div>
+
+  <nav id="menu" class="menu-lateral">
+    <div>
+      <h2>📚 Estante</h2>
+      <p class="menu-subtitle">Explore seus livros</p>
+
+      <ion-button expand="block" href="perfil.html">👤 Perfil</ion-button>
+      <ion-button expand="block">📚 Gênero</ion-button>
+      <ion-button expand="block">📖 Título</ion-button>
+      <ion-button expand="block">✍️ Autor</ion-button>
+    </div>
+
+    <ion-button expand="block" href="inicio.html" class="logout">
+      🚪 Logout
+    </ion-button>
+  </nav>
+
+  <ion-header class="header">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-button fill="clear" onclick="abrirMenu()" class="menu-btn">☰</ion-button>
+      </ion-buttons>
+
+      <ion-title>Estante</ion-title>
+    </ion-toolbar>
+
+    <div class="search-box">
+      <ion-searchbar id="pesquisa" placeholder="Buscar livro..."></ion-searchbar>
+    </div>
+  </ion-header>
+
+  <ion-content fullscreen>
+
+    <main class="conteudo">
+
+      <section class="boas-vindas">
+        <h1>Minha Estante</h1>
+        <p>Encontre livros para trocar, publicar ou guardar na sua estante virtual.</p>
+      </section>
+
+      <section class="grid-livros">
+
+        <div class="card">
+          <div class="img">📘</div>
+          <h3>Dom Casmurro</h3>
+          <p>Romance</p>
+        </div>
+
+        <div class="card">
+          <div class="img">📖</div>
+          <h3>Pequeno Príncipe</h3>
+          <p>Fábula</p>
+        </div>
+
+        <div class="card">
+          <div class="img">🪄</div>
+          <h3>Harry Potter</h3>
+          <p>Fantasia</p>
+        </div>
+
+        <div class="card">
+          <div class="img">🌿</div>
+          <h3>O Hobbit</h3>
+          <p>Aventura</p>
+        </div>
+
+      </section>
+
+    </main>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button href="publicar.html">
+        +
+      </ion-fab-button>
+    </ion-fab>
+
+  </ion-content>
+
+</ion-app>
+
+<script>
+function abrirMenu() {
+  document.getElementById("menu").classList.add("ativo");
+  document.getElementById("overlay").classList.add("ativo");
+}
+
+function fecharMenu() {
+  document.getElementById("menu").classList.remove("ativo");
+  document.getElementById("overlay").classList.remove("ativo");
+}
+
+window.addEventListener("DOMContentLoaded", () => {
+  const searchbar = document.querySelector("#pesquisa");
+
+  searchbar.addEventListener("ionInput", (event) => {
+    const valor = event.target.value.toLowerCase();
+    const cards = document.querySelectorAll(".card");
+
+    cards.forEach(card => {
+      const titulo = card.querySelector("h3").textContent.toLowerCase();
+      card.style.display = titulo.includes(valor) ? "block" : "none";
+    });
+  });
+});
+</script>
+
+</body>
+</html>

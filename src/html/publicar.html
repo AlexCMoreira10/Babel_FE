@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Publicar Livro</title>
+
+  <link rel="stylesheet" href="../css/publicarStyle.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <h2>📚 Publicar Livro</h2>
+
+    <input type="text" placeholder="Título do livro">
+    <input type="text" placeholder="Gênero">
+    <input type="text" placeholder="Autor">
+    <input type="text" placeholder="Editora">
+
+    <!-- Upload -->
+    <label class="upload-label">
+      📷 Capa do livro
+      <input type="file" accept="image/*">
+    </label>
+
+    <!-- Avaliação -->
+    <div class="avaliacao">
+      <span>⭐ Avaliação:</span>
+
+      <select>
+        <option value="">Escolha</option>
+        <option value="1">⭐</option>
+        <option value="2">⭐⭐</option>
+        <option value="3">⭐⭐⭐</option>
+        <option value="4">⭐⭐⭐⭐</option>
+        <option value="5">⭐⭐⭐⭐⭐</option>
+      </select>
+    </div>
+
+    <button>PUBLICAR</button>
+
+    <a href="indexMain.html" class="voltar">← Voltar</a>
+
+  </div>
+
+</body>
+</html>

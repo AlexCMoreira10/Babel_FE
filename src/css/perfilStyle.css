@@ -1,0 +1,127 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* FUNDO */
+ion-content {
+  --background: #f7ead7;
+  position: relative;
+}
+
+/* SHAPE (efeito curvo topo) */
+ion-content::before {
+  content: "";
+  position: absolute;
+  width: 140%;
+  height: 250px;
+  background: #55bbb5;
+
+  top: -120px;
+  left: -20%;
+
+  border-radius: 0 0 60% 60%;
+  z-index: 0;
+}
+
+/* CARD PRINCIPAL */
+.container {
+  position: relative;
+  z-index: 1;
+
+  background: #fffaf1;
+  max-width: 420px;
+  margin: 80px auto 40px;
+  padding: 25px;
+
+  border-radius: 30px;
+  text-align: center;
+
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+/* TOPO PERFIL */
+.perfil-topo {
+  background: #f4efdf;
+  border-radius: 40px;
+
+  display: flex;
+  align-items: center;
+  gap: 15px;
+
+  padding: 12px 18px;
+  margin-bottom: 25px;
+
+  box-shadow: inset 0 2px 5px rgba(0,0,0,0.08);
+}
+
+/* FOTO */
+.avatar {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  border: 3px solid #55bbb5;
+}
+
+/* NOME */
+.nome {
+  font-size: 20px;
+  font-weight: bold;
+  color: #493b32;
+}
+
+/* INFO */
+.info p {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #6d5a4d;
+}
+
+/* BOTÕES */
+.botoes {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* BOTÕES BONITOS */
+ion-button {
+  --background: #fffaf1;
+  --color: #493b32;
+  --border-radius: 30px;
+
+  font-weight: bold;
+  height: 48px;
+
+  box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+}
+
+/* BOTÃO ESPECIAL (logout por exemplo) */
+.botao-destaque {
+  --background: #ffc46b;
+}
+
+/* RESPONSIVO */
+@media (max-width: 480px) {
+  .container {
+    margin: 60px 15px 30px;
+    padding: 20px;
+  }
+
+  .perfil-topo {
+    padding: 10px 15px;
+    gap: 10px;
+  }
+
+  .avatar {
+    width: 55px;
+    height: 55px;
+  }
+
+  .nome {
+    font-size: 18px;
+  }
+}

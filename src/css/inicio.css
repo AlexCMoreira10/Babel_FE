@@ -1,0 +1,149 @@
+/* FUNDO DO IONIC */
+ion-content {
+    --background: #3aa6a1;
+
+    background-image:
+        linear-gradient(rgba(255,255,255,0.18) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.18) 1px, transparent 1px);
+    background-size: 25px 25px;
+}
+
+/* RESET INTERNO */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONTAINER */
+.container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+}
+
+/* CARD */
+.card {
+    width: 100%;
+    max-width: 430px;
+    background: #f6efe4;
+    border-radius: 24px;
+    padding: 32px 24px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+    border: 4px solid #2c8d88;
+}
+
+/* TOPO */
+.topo-card {
+    text-align: center;
+    margin-bottom: 24px;
+}
+
+.topo-card h1 {
+    font-size: 2rem;
+    color: #2b2b2b;
+    margin-bottom: 8px;
+}
+
+.topo-card p {
+    color: #5a5a5a;
+    font-size: 0.95rem;
+}
+
+/* CONTEÚDO */
+.conteudo-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+}
+
+/* ILUSTRAÇÃO */
+.ilustracao {
+    width: 100%;
+    max-width: 220px;
+    height: 140px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+.livro {
+    width: 56px;
+    border-radius: 8px 8px 4px 4px;
+    position: absolute;
+    bottom: 0;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.12);
+}
+
+.livro1 {
+    height: 110px;
+    left: 25px;
+    background: #f4a034;
+    transform: rotate(-8deg);
+}
+
+.livro2 {
+    height: 125px;
+    background: #b85c7a;
+    z-index: 2;
+}
+
+.livro3 {
+    height: 105px;
+    right: 25px;
+    background: #5d8aa8;
+    transform: rotate(8deg);
+}
+
+/* TEXTO */
+.texto {
+    text-align: center;
+    color: #444;
+    line-height: 1.5;
+    font-size: 0.95rem;
+    max-width: 300px;
+}
+
+/* BOTÃO IONIC */
+ion-button.btn {
+    --background: #f4a034;
+    --color: white;
+    --border-radius: 999px;
+
+    width: 180px;
+    height: 48px;
+    font-weight: bold;
+}
+
+/* HOVER (desktop) */
+ion-button.btn:hover {
+    --background: #e18d24;
+    transform: scale(1.03);
+}
+
+/* RESPONSIVO */
+@media (max-width: 500px) {
+
+    .card {
+        padding: 24px 18px;
+        border-radius: 20px;
+    }
+
+    .topo-card h1 {
+        font-size: 1.7rem;
+    }
+
+    .texto {
+        font-size: 0.9rem;
+    }
+
+    ion-button.btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}

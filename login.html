@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Estante</title>
+
+  <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
+  <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css">
+
+  <link rel="stylesheet" href="./src/css/style.css">
+</head>
+
+<body>
+  <ion-app>
+    <ion-content fullscreen class="login-page">
+
+      <div class="box-login">
+        <h1>Espere um "Estante"</h1>
+
+        <div class="card-form">
+          <h2>Login</h2>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Email</ion-label>
+            <ion-input type="email" placeholder="Digite seu email"></ion-input>
+          </ion-item>
+
+          <ion-item lines="none">
+            <ion-label position="stacked">Senha</ion-label>
+            <ion-input type="password" placeholder="Digite sua senha"></ion-input>
+          </ion-item>
+
+          <p class="esqueci">
+            <a href="recuperar.html">Esqueceu a senha?</a>
+          </p>
+
+          <a href="./src/html/indexMain.html">
+         <ion-button expand="block" class="btn">
+           Entrar
+         </ion-button>
+          </a>
+            <ion-button expand="block" class="btn" id="loginBtn">
+              Entrar com Google
+            </ion-button>
+          <ion-button expand="block" class="btn" onclick="window.location.href='cadastro.html'">
+            Cadastrar
+          </ion-button>
+        </div>
+      </div>
+  
+      <script type="module" src="src/js/app.js"></script>
+    </ion-content>
+  </ion-app>
+</body>
+</html>

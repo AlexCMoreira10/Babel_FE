@@ -1,0 +1,87 @@
+ion-content {
+    --background: #e8dcc6;
+}
+
+/* TOPO IONIC */
+.topo {
+    --background: #3aa6a1;
+    color: white;
+}
+
+/* PÁGINA */
+.pagina-estante{
+    width:100%;
+    max-width:1100px;
+    margin:0 auto;
+    padding:24px 20px 40px;
+    display:flex;
+    flex-direction:column;
+    gap:28px;
+}
+
+/* BLOCOS */
+.bloco-estante{
+    background:#f6efe4;
+    border:3px solid #49b6b2;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.10);
+}
+
+/* GRID */
+.grid-livros{
+    display:grid;
+    grid-template-columns:repeat(auto-fit, minmax(210px, 1fr));
+    gap:18px;
+}
+
+/* CARD */
+.card-livro{
+    background:#fffaf2;
+    border-radius:18px;
+    padding:14px;
+    box-shadow:0 4px 10px rgba(0,0,0,0.08);
+    display:flex;
+    flex-direction:column;
+    gap:8px;
+}
+
+/* CAPA */
+.capa{
+    width:100%;
+    height:150px;
+    border-radius:14px;
+    background:#bdbdbd;
+}
+
+/* STATUS */
+.status{
+    display:inline-block;
+    margin-top:8px;
+    padding:8px 12px;
+    border-radius:999px;
+    font-size:0.85rem;
+    font-weight:bold;
+    align-self:flex-start;
+}
+
+.publicado{
+    background:#ffe2b8;
+    color:#9a5a00;
+}
+
+.trocado{
+    background:#d9f7df;
+    color:#1c7a35;
+}
+
+/* RESPONSIVO */
+@media (max-width:600px){
+    .pagina-estante{
+        padding:18px 14px 30px;
+    }
+
+    .bloco-estante{
+        padding:16px;
+    }
+}

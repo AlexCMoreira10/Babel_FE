@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minha Estante Virtual</title>
+
+<link rel="stylesheet" href="../css/estante.css">
+
+<!-- Ionic CDN -->
+<script type="module" src="https://unpkg.com/@ionic/core@latest/dist/ionic/ionic.esm.js"></script>
+<script nomodule src="https://unpkg.com/@ionic/core@latest/dist/ionic/ionic.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"/>
+</head>
+
+<body>
+
+<ion-app>
+
+<!-- TOPO -->
+<ion-header>
+  <ion-toolbar class="topo">
+
+    <ion-button fill="clear" href="indexMain.html">
+      ←
+    </ion-button>
+
+    <ion-title>📚 Minha Estante</ion-title>
+
+  </ion-toolbar>
+</ion-header>
+
+<!-- CONTEÚDO -->
+<ion-content>
+
+<main class="pagina-estante">
+
+  <!-- LIVROS PUBLICADOS -->
+  <section class="bloco-estante">
+
+    <div class="titulo-bloco">
+      <h2>Livros Publicados</h2>
+      <span>3 livros</span>
+    </div>
+
+    <div class="grid-livros">
+
+      <article class="card-livro">
+        <div class="capa"></div>
+        <h3>Dom Casmurro</h3>
+        <p>Gênero: Romance</p>
+        <p>Autor: Machado de Assis</p>
+        <span class="status publicado">Publicado</span>
+      </article>
+
+      <article class="card-livro">
+        <div class="capa"></div>
+        <h3>Harry Potter</h3>
+        <p>Gênero: Fantasia</p>
+        <p>Autor: J.K. Rowling</p>
+        <span class="status publicado">Publicado</span>
+      </article>
+
+      <article class="card-livro">
+        <div class="capa"></div>
+        <h3>O Pequeno Príncipe</h3>
+        <p>Gênero: Fábula</p>
+        <p>Autor: Antoine de Saint-Exupéry</p>
+        <span class="status publicado">Publicado</span>
+      </article>
+
+    </div>
+
+  </section>
+
+  <!-- LIVROS TROCADOS -->
+  <section class="bloco-estante">
+
+    <div class="titulo-bloco">
+      <h2>Livros Trocados</h2>
+      <span>2 livros</span>
+    </div>
+
+    <div class="grid-livros">
+
+      <article class="card-livro">
+        <div class="capa"></div>
+        <h3>A Menina que Roubava Livros</h3>
+        <p>Gênero: Drama</p>
+        <p>Autor: Markus Zusak</p>
+        <span class="status trocado">Trocado</span>
+      </article>
+
+      <article class="card-livro">
+        <div class="capa"></div>
+        <h3>O Hobbit</h3>
+        <p>Gênero: Aventura</p>
+        <p>Autor: J.R.R. Tolkien</p>
+        <span class="status trocado">Trocado</span>
+      </article>
+
+    </div>
+
+  </section>
+
+</main>
+
+</ion-content>
+
+</ion-app>
+
+</body>
+</html>
