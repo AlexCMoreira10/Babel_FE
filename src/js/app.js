@@ -24,10 +24,10 @@ const provider = new GoogleAuthProvider();
 let token = null;
 
 /* URL DO BACKEND (CONFERE COM SEU NODE) */
-const URL_BASE = "http://localhost:3000/api";
+//const URL_BASE = "http://localhost:3000/api";
 
 /* URL DO BACKEND pode ser alterada conforme necessário */
-//const URL_BASE = "https://babel-backend.onrender.com/api";
+const URL_BASE = "https://babel-backend.onrender.com/api";
 
 // LOGIN
 document.getElementById("loginBtn").onclick = async () => {
