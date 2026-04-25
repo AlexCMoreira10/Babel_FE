@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,114 +14,130 @@
 </head>
 
 <body>
-<ion-app>
+  <ion-app>
 
-  <div id="overlay" onclick="fecharMenu()"></div>
+    <div id="overlay" onclick="fecharMenu()"></div>
 
-  <nav id="menu" class="menu-lateral">
-    <div>
-      <h2>📚 Estante</h2>
-      <p class="menu-subtitle">Explore seus livros</p>
+    <nav id="menu" class="menu-lateral">
+      <div>
+        <h2>📚 Estante</h2>
+        <p class="menu-subtitle">Explore seus livros</p>
 
-      <ion-button expand="block" href="perfil.html">👤 Perfil</ion-button>
-      <ion-button expand="block">📚 Gênero</ion-button>
-      <ion-button expand="block">📖 Título</ion-button>
-      <ion-button expand="block">✍️ Autor</ion-button>
-    </div>
+        <ion-button expand="block" href="perfil.html">👤 Perfil</ion-button>
+        <ion-button expand="block">📚 Gênero</ion-button>
+        <ion-button expand="block">📖 Título</ion-button>
+        <ion-button expand="block">✍️ Autor</ion-button>
+      </div>
 
-    <ion-button expand="block" href="inicio.html" class="logout">
-      🚪 Logout
-    </ion-button>
-  </nav>
+      <ion-button expand="block" href="inicio.html" class="logout">
+        🚪 Logout
+      </ion-button>
+    </nav>
 
-  <ion-header class="header">
-    <ion-toolbar>
-      <ion-buttons slot="start">
-        <ion-button fill="clear" onclick="abrirMenu()" class="menu-btn">☰</ion-button>
-      </ion-buttons>
+    <ion-header class="header">
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button fill="clear" onclick="abrirMenu()" class="menu-btn">☰</ion-button>
+        </ion-buttons>
 
-      <ion-title>Estante</ion-title>
-    </ion-toolbar>
+        <ion-title>Estante</ion-title>
+      </ion-toolbar>
 
-    <div class="search-box">
-      <ion-searchbar id="pesquisa" placeholder="Buscar livro..."></ion-searchbar>
-    </div>
-  </ion-header>
+      <div class="search-box">
+        <ion-searchbar id="pesquisa" placeholder="Buscar livro..."></ion-searchbar>
+      </div>
+    </ion-header>
 
-  <ion-content fullscreen>
+    <ion-content fullscreen>
 
-    <main class="conteudo">
+      <main class="conteudo">
 
-      <section class="boas-vindas">
-        <h1>Minha Estante</h1>
-        <p>Encontre livros para trocar, publicar ou guardar na sua estante virtual.</p>
-      </section>
+        <section class="boas-vindas">
+          <h1>Minha Estante</h1>
+          <p>Encontre livros para trocar, publicar ou guardar na sua estante virtual.</p>
+        </section>
 
-      <section class="grid-livros">
+        <section class="grid-livros" id="gridLivros">
 
-        <div class="card">
-          <div class="img">📘</div>
-          <h3>Dom Casmurro</h3>
-          <p>Romance</p>
-        </div>
+        </section>
 
-        <div class="card">
-          <div class="img">📖</div>
-          <h3>Pequeno Príncipe</h3>
-          <p>Fábula</p>
-        </div>
+      </main>
 
-        <div class="card">
-          <div class="img">🪄</div>
-          <h3>Harry Potter</h3>
-          <p>Fantasia</p>
-        </div>
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button href="publicar.html">
+          +
+        </ion-fab-button>
+      </ion-fab>
 
-        <div class="card">
-          <div class="img">🌿</div>
-          <h3>O Hobbit</h3>
-          <p>Aventura</p>
-        </div>
+    </ion-content>
 
-      </section>
+  </ion-app>
 
-    </main>
+  <script>
+    function abrirMenu() {
+      document.getElementById("menu").classList.add("ativo");
+      document.getElementById("overlay").classList.add("ativo");
+    }
 
-    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
-      <ion-fab-button href="publicar.html">
-        +
-      </ion-fab-button>
-    </ion-fab>
+    function fecharMenu() {
+      document.getElementById("menu").classList.remove("ativo");
+      document.getElementById("overlay").classList.remove("ativo");
+    }
 
-  </ion-content>
+    window.addEventListener("DOMContentLoaded", () => {
+      const searchbar = document.querySelector("#pesquisa");
 
-</ion-app>
+      searchbar.addEventListener("ionInput", (event) => {
+        const valor = event.target.value.toLowerCase();
+        const cards = document.querySelectorAll(".card");
 
-<script>
-function abrirMenu() {
-  document.getElementById("menu").classList.add("ativo");
-  document.getElementById("overlay").classList.add("ativo");
-}
-
-function fecharMenu() {
-  document.getElementById("menu").classList.remove("ativo");
-  document.getElementById("overlay").classList.remove("ativo");
-}
-
-window.addEventListener("DOMContentLoaded", () => {
-  const searchbar = document.querySelector("#pesquisa");
-
-  searchbar.addEventListener("ionInput", (event) => {
-    const valor = event.target.value.toLowerCase();
-    const cards = document.querySelectorAll(".card");
-
-    cards.forEach(card => {
-      const titulo = card.querySelector("h3").textContent.toLowerCase();
-      card.style.display = titulo.includes(valor) ? "block" : "none";
+        cards.forEach(card => {
+          const titulo = card.querySelector("h3").textContent.toLowerCase();
+          card.style.display = titulo.includes(valor) ? "block" : "none";
+        });
+      });
     });
-  });
-});
-</script>
+    const token = localStorage.getItem("token");
 
+    if (!token) {
+      alert("Você precisa logar!");
+      window.location.href = "../../index.html";
+    }
+
+    async function carregarLivros() {
+      const res = await fetch("http://localhost:3000/api/livros", {
+        headers: {
+          "Authorization": `Bearer ${token}`
+        }
+      });
+
+      const data = await res.json();
+
+      const grid = document.getElementById("gridLivros");
+      grid.innerHTML = "";
+
+      // ⚠️ Ajuste aqui dependendo do retorno da sua API
+      const livros = data.dados || data;
+
+      livros.forEach(livro => {
+        const card = document.createElement("div");
+        card.className = "card";
+
+        card.innerHTML = `
+    <div class="img">📚</div>
+    <h3>${livro.titulo}</h3>
+    <p>${livro.autor}</p>
+    <p><strong>${livro.tipo}</strong></p>
+    `;
+
+        grid.appendChild(card);
+      });
+    }
+
+    // carregar ao abrir página
+    carregarLivros();
+  </script>
+  <script src="carregarLivros.js"> </script>
 </body>
+
 </html>

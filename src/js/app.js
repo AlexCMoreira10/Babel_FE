@@ -20,7 +20,34 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
+/*Criar variavel global para armazenar o token do usuário*/
+let token = null;
+
 /* URL DO BACKEND (CONFERE COM SEU NODE) */
-//const URL_BACKEND = "http://localhost:3000/api/users/me";
-const URL = "https://babel-backend.onrender.com/api";
+const URL_BASE = "http://localhost:3000/api";
+
+/* URL DO BACKEND pode ser alterada conforme necessário */
+//const URL_BASE = "https://babel-backend.onrender.com/api";
+
+// LOGIN
+document.getElementById("loginBtn").onclick = async () => {
+  const result = await signInWithPopup(auth, provider);
+  token = await result.user.getIdToken();
+  console.log("Token do usuário:", token);
+  
+  if (token) {
+    
+    /**Preciso salvar o Token entre as paginas para usar quando for necessario */
+    localStorage.setItem("token", token);
+    /* E*/
+    window.location.href = "./src/html/indexMain.html";
+    alert("Login bem-sucedido!");    
+  }
+  
+  if (!token) {
+    alert("Falha no login. Tente novamente.");
+  }
+}
+    
+
 
